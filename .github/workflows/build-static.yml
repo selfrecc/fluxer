@@ -20,7 +20,7 @@ jobs:
       - uses: docker/build-push-action@v6
         with:
           context: .
-          file: <path to the fluxer-static Dockerfile>
+          file: fluxer_static/Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository_owner }}/fluxer-static:patched
 
