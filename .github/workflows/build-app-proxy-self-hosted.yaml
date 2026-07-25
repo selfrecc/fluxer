@@ -2,6 +2,8 @@
 name: build app-proxy self-hosted
 
 on:
+  push:
+    branches: [self-hosted-patches]
   workflow_dispatch:
     inputs:
       build-version:

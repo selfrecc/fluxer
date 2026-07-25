@@ -187,8 +187,8 @@ async fn resolve_invite_meta(
 
 fn build_runtime_csp_sources(state: &AppState, discovery: &DiscoveryResponse) -> RuntimeCspSources {
     RuntimeCspSources {
-        static_cdn_endpoint: discovery_endpoint(discovery, "static_cdn")
-            .or_else(|| state.config.static_cdn_endpoint.clone()),
+        static_cdn_endpoint: state.config.static_cdn_endpoint.clone()
+            .or_else(|| discovery_endpoint(discovery, "static_cdn")),
         media_endpoint: discovery_endpoint(discovery, "media"),
         s3_public_endpoint: state.config.s3_public_endpoint.clone(),
         s3_uploads_bucket: Some(state.config.s3_uploads_bucket.clone()),
